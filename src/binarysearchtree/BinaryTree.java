@@ -8,36 +8,57 @@ public class BinaryTree
 
     public BinaryTree() { this.root = null; }
 
-    // -------- Conventional Operations --------
+    // ---------- Conventional Methods ---------
+
+    // updates the amount of nodes in the right and left subtrees (recursive method).
+
+    private void updateSubtreeNodeAmount(Node currentNode)
+    {
+        if (currentNode == null) { return; }
+
+        if (currentNode.getLeft() != null)
+        {
+            updateSubtreeNodeAmount(currentNode.getLeft());
+            currentNode.setSizeLeft(currentNode.getLeft().getSizeLeft() + currentNode.getLeft().getSizeRight() + 1);
+        }
+        else { currentNode.setSizeLeft(0); }
+
+        if (currentNode.getRight() != null)
+        {
+            updateSubtreeNodeAmount(currentNode.getRight());
+            currentNode.setSizeRight(currentNode.getRight().getSizeLeft() + currentNode.getRight().getSizeRight() + 1);
+        }
+        else { currentNode.setSizeRight(0); }
+    }
 
     // find the place where we want to add a new node to keep the tree sorted (recursive method).
 
     private Node recursiveInsert(Node currentNode, int value)
     {
-        // reached the appropriate position to insert the new node.
-
-        if (currentNode == null) { return new Node(value); }
-
         /*
+        Null: reached the appropriate position to insert the new node.
         New value is smaller : places in the left subtree.
         New value is greater : places in the right subtree.
         Else : value already exists.
         */
 
-        if (value < currentNode.getValue())
+        if (currentNode == null)
+        {
+            currentNode = new Node(value);
+        }
+        else if (value < currentNode.getValue())
         {
             currentNode.setLeft(recursiveInsert(currentNode.getLeft(), value));
+            updateSubtreeNodeAmount(currentNode);
         }
         else if (value > currentNode.getValue())
         {
             currentNode.setRight(recursiveInsert(currentNode.getRight(), value));
+            updateSubtreeNodeAmount(currentNode);
         }
-        else { return currentNode; }
 
         return currentNode;
     }
-
-    // uses the recursive function to add an element to the tree.
 
     public void insertElement(int value) { root = recursiveInsert(root, value); }
 
@@ -58,20 +79,7 @@ public class BinaryTree
         else { return recursiveSearch(currentNode.getRight(), value); }
     }
 
-    // uses the recursive function to search for an element.
-
     public boolean searchElement(int value) { return recursiveSearch(root, value); }
-
-    // find the smallest node in the right subtree of the soon-to-be-deleted node (recursive method).
-
-    private int findSmallestValue(Node root)
-    {
-        if (root.getLeft() == null)
-        {
-            return root.getValue();
-        }
-        else { return findSmallestValue(root.getLeft()); }
-    }
 
     // find the node to delete from the tree (recursive method).
 
@@ -103,14 +111,10 @@ public class BinaryTree
             {
                 int smallestValue = findSmallestValue(currentNode.getRight());
 
-                // Replace with the smallest value.
+                // Replace with the smallest value delete the smallest node in the right subtree.
 
                 currentNode.setValue(smallestValue);
-
-                // Delete the smallest node in the right subtree.
-
                 currentNode.setRight(recursiveDelete(currentNode.getRight(), smallestValue));
-
                 return currentNode;
             }
         }
@@ -129,20 +133,59 @@ public class BinaryTree
             currentNode.setRight(recursiveDelete(currentNode.getRight(), value));
         }
 
+        updateSubtreeNodeAmount(currentNode);
         return currentNode;
     }
 
-    // uses the recursive function to delete an element
-
     public void deleteElement(int value) { root = recursiveDelete(root, value); }
 
-    // ---------- Specific Operations ----------
+    // ------------ Specific Methods -----------
 
+    // (7) returns a String that contains the traversal of the tree in a pre-order.
 
+    private String preOrder(Node currentNode)
+    {
+        if (currentNode == null) {  return ""; }
+
+        String result = currentNode.getValue() + " ";
+        result += preOrder(currentNode.getLeft());
+        result += preOrder(currentNode.getRight());
+
+        return result;
+    }
+
+    public String printPreOrder() { return preOrder(root).trim(); }
+
+    // ------------- Helper Methods ------------
+
+    // find the smallest node in the right subtree of the soon-to-be-deleted node (recursive method).
+
+    private int findSmallestValue(Node root)
+    {
+        if (root.getLeft() == null)
+        {
+            return root.getValue();
+        }
+        else { return findSmallestValue(root.getLeft()); }
+    }
 
     // ---------- Getters and Setters ----------
 
     public Node getRoot() { return root; }
 
     public void setRoot(Node root) { this.root = root; }
+
+    public int getLeftSubtreeSize(Node node)
+    {
+        if (node == null) { return 0; }
+
+        return node.getSizeLeft();
+    }
+
+    public int getRightSubtreeSize(Node node)
+    {
+        if (node == null) { return 0; }
+
+        return node.getSizeRight();
+    }
 }
