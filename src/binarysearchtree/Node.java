@@ -7,16 +7,18 @@ public class Node
     private Node right;
     private int sizeLeft;
     private int sizeRight;
+    private int level;
 
     // -------------- Constructor --------------
 
-    public Node(int value)
+    public Node(int value, int nodeLevel)
     {
         this.value = value;
         this.left = null;
         this.right = null;
         this.sizeLeft = 0;
         this.sizeRight = 0;
+        this.level = 0;
     }
 
     // ---------- Getters and Setters ----------
@@ -40,4 +42,8 @@ public class Node
     public int getSizeRight() { return sizeRight; }
 
     public void setSizeRight(int sizeRight) { this.sizeRight = sizeRight; }
+
+    public int getLevel() { return level; }
+
+    public void setLevel(int level) { this.level = level; }
 }
