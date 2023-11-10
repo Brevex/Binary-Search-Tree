@@ -11,64 +11,39 @@ public class BinaryTree
 
     // -------------------- Conventional Methods -------------------
 
-    // updates the amount of nodes in the right and left subtrees (recursive method).
-
-    private void updateSubtreeNodeAmount(Node currentNode)
-    {
-        if (currentNode == null) { return; }
-
-        if (currentNode.getLeft() != null)
-        {
-            updateSubtreeNodeAmount(currentNode.getLeft());
-            currentNode.setSizeLeft(currentNode.getLeft().getSizeLeft() + currentNode.getLeft().getSizeRight() + 1);
-        }
-        else { currentNode.setSizeLeft(0); }
-
-        if (currentNode.getRight() != null)
-        {
-            updateSubtreeNodeAmount(currentNode.getRight());
-            currentNode.setSizeRight(currentNode.getRight().getSizeLeft() + currentNode.getRight().getSizeRight() + 1);
-        }
-        else { currentNode.setSizeRight(0); }
-    }
-
     // find the place where we want to add a new node to keep the tree sorted (recursive method).
 
-    private Node recursiveInsert(Node currentNode, int value)
+    private Node recursiveInsert(Node currentNode, int value, int nodeLevel)
     {
-        /*
-        Null: reached the appropriate position to insert the new node.
-        New value is smaller : places in the left subtree.
-        New value is greater : places in the right subtree.
-        Else : value already exists.
-        */
-
         if (currentNode == null)
         {
-            currentNode = new Node(value);
+            currentNode = new Node(value, nodeLevel);
         }
         else if (value < currentNode.getValue())
         {
-            currentNode.setLeft(recursiveInsert(currentNode.getLeft(), value));
-            updateSubtreeNodeAmount(currentNode);
+            if (currentNode.getLeft() == null || value != currentNode.getLeft().getValue())
+            {
+                currentNode.setLeft(recursiveInsert(currentNode.getLeft(), value, nodeLevel + 1));
+            }
         }
         else if (value > currentNode.getValue())
         {
-            currentNode.setRight(recursiveInsert(currentNode.getRight(), value));
-            updateSubtreeNodeAmount(currentNode);
+            if (currentNode.getRight() == null || value != currentNode.getRight().getValue())
+            {
+                currentNode.setRight(recursiveInsert(currentNode.getRight(), value, nodeLevel + 1));
+            }
         }
 
+        updateSubtreeNodeAmount(currentNode);
         return currentNode;
     }
 
-    public void insertElement(int value) { root = recursiveInsert(root, value); }
+    public void insertElement(int value) { root = recursiveInsert(root, value, 1); }
 
     // check if the tree contains a specific value (recursive method).
 
     private boolean recursiveSearch(Node currentNode, int value)
     {
-        // searching for the value by comparing it to the value in the current node.
-
         if (currentNode == null) { return false; }
 
         if (value == currentNode.getValue()) { return true; }
@@ -86,33 +61,19 @@ public class BinaryTree
 
     private Node recursiveDelete(Node currentNode, int value)
     {
-        // Value not found, nothing to delete.
-
         if (currentNode == null) { return null; }
-
-        // Node to delete found, handle the three cases:
 
         if (value == currentNode.getValue())
         {
-            // Case 1: Node has no children.
-
             if (currentNode.getLeft() == null && currentNode.getRight() == null) { return null; }
-
-            // Case 2: Node has one child (left child).
 
             if (currentNode.getLeft() == null) { return currentNode.getRight(); }
 
-            // Case 2: Node has one child (right child).
-
             if (currentNode.getRight() == null) { return currentNode.getLeft(); }
-
-            // Case 3: Node has two children, find the smallest value in the right subtree.
 
             if (currentNode.getLeft() != null && currentNode.getRight() != null)
             {
                 int smallestValue = findSmallestValue(currentNode.getRight());
-
-                // Replace with the smallest value delete the smallest node in the right subtree.
 
                 currentNode.setValue(smallestValue);
                 currentNode.setRight(recursiveDelete(currentNode.getRight(), smallestValue));
@@ -120,16 +81,11 @@ public class BinaryTree
             }
         }
 
-        /*
-        Value is smaller : search in the left subtree.
-        Value is greater : search in the right subtree.
-        */
-
         if (value < currentNode.getValue())
         {
             currentNode.setLeft(recursiveDelete(currentNode.getLeft(), value));
         }
-        else
+        else if (value > currentNode.getValue())
         {
             currentNode.setRight(recursiveDelete(currentNode.getRight(), value));
         }
@@ -146,9 +102,9 @@ public class BinaryTree
 
     public int nthElement(int n)
     {
-        if (root == null || n <= 0) { return -1; } // Invalid value.
+        if (root == null || n <= 0) { return -1; }
 
-        counter = 0; // restarting the counter.
+        counter = 0;
 
         return findNthElement(root, n).getValue();
     }
@@ -157,9 +113,9 @@ public class BinaryTree
 
     public int position(int x)
     {
-        if (root == null || x <= 0) { return -1; } // Invalid value.
+        if (root == null || x <= 0) { return -1; }
 
-        counter = 0; // restarting the counter.
+        counter = 0;
 
         return findPositionInOrder(root, x);
     }
@@ -168,11 +124,9 @@ public class BinaryTree
 
     public int median()
     {
-        if (root == null) { return -1; } // Invalid value.
+        if (root == null) { return -1; }
 
         int totalElements = countNodes(root);
-
-        // If the ABB has an even amount of elements, return the smaller of the two median elements.
 
         if (totalElements % 2 == 0)
         {
@@ -191,16 +145,14 @@ public class BinaryTree
 
     public double mean(Node x)
     {
-        if (root == null) { return 0.0; } // empty root.
+        if (root == null) { return 0.0; }
 
-        int Sum = calculateSum(x);
+        int sum = calculateSum(x);
         int totalElements = countNodes(x);
-
-        // calculates the mean and avoids division by 0
 
         if (totalElements > 0)
         {
-            return (double) Sum / totalElements;
+            return (double) sum / totalElements;
         }
         else { return 0.0; }
     }
@@ -209,16 +161,12 @@ public class BinaryTree
 
     private boolean isFullTree(Node root)
     {
-        if (root == null) { return true; } // an empty tree is full.
-
-        // A leaf node is considered full.
+        if (root == null) { return true; }
 
         if (root.getLeft() == null && root.getRight() == null)
         {
             return true;
         }
-
-        // Checks whether both the left and right subtrees are full trees.
 
         if (root.getLeft() != null && root.getRight() != null)
         {
@@ -234,7 +182,7 @@ public class BinaryTree
 
     public boolean isComplete()
     {
-        if (root == null) { return true; } // an empty tree is complete
+        if (root == null) { return true; }
 
         int height = treeHeight(root);
         int totalElements = countNodes(root);
@@ -257,9 +205,80 @@ public class BinaryTree
 
     public String printPreOrder() { return preOrder(root).trim(); }
 
+    // (8) gives the user the option to print the tree in 2 ways.
+
+    public void printTree(int s)
+    {
+        if (root == null) { return; }
+
+        System.out.println(" ");
+
+        switch (s)
+        {
+            case 1:
+                printModelOne(root, 1);
+                break;
+
+            case 2:
+                printModelTwo(root);
+                break;
+
+            default:
+                System.out.println("Invalid value");
+                break;
+        }
+    }
+
     // ----------------------- Helper Methods -----------------------
 
-    // find the smallest node in the right subtree of the soon-to-be-deleted node (recursive method).
+    private void updateSubtreeNodeAmount(Node currentNode)
+    {
+        if (currentNode == null) { return; }
+
+        if (currentNode.getLeft() != null)
+        {
+            updateSubtreeNodeAmount(currentNode.getLeft());
+            currentNode.setSizeLeft(currentNode.getLeft().getSizeLeft() + currentNode.getLeft().getSizeRight() + 1);
+        }
+        else { currentNode.setSizeLeft(0); }
+
+        if (currentNode.getRight() != null)
+        {
+            updateSubtreeNodeAmount(currentNode.getRight());
+            currentNode.setSizeRight(currentNode.getRight().getSizeLeft() + currentNode.getRight().getSizeRight() + 1);
+        }
+        else { currentNode.setSizeRight(0); }
+    }
+
+    private Node findNthElement(Node currentNode, int n)
+    {
+        if (currentNode == null) { return null; }
+
+        Node leftResult = findNthElement(currentNode.getLeft(), n);
+
+        if (leftResult != null) { return leftResult; }
+
+        counter++;
+
+        if (counter == n) { return currentNode; }
+
+        return findNthElement(currentNode.getRight(), n);
+    }
+
+    private int findPositionInOrder(Node currentNode, int x)
+    {
+        if (currentNode == null) { return -1; }
+
+        int leftResult = findPositionInOrder(currentNode.getLeft(), x);
+
+        if (leftResult != -1) { return leftResult; }
+
+        counter++;
+
+        if (currentNode.getValue() == x) { return counter; }
+
+        return findPositionInOrder(currentNode.getRight(), x);
+    }
 
     private int findSmallestValue(Node root)
     {
@@ -269,50 +288,6 @@ public class BinaryTree
         }
         else { return findSmallestValue(root.getLeft()); }
     }
-
-    // find the nth element in the tree (recursive method).
-
-    private Node findNthElement(Node currentNode, int n)
-    {
-        if (currentNode == null) { return null; } // element not found.
-
-        // perform the traversal in symmetric order recursively.
-
-        Node leftResult = findNthElement(currentNode.getLeft(), n);
-
-        if (leftResult != null) { return leftResult; } // founded! (on the left).
-
-        counter++;
-
-        if (counter == n) { return currentNode; } // already founded.
-
-        // continue searching in the right subtree.
-
-        return findNthElement(currentNode.getRight(), n);
-    }
-
-    // find an element position in the tree (recursive method).
-
-    private int findPositionInOrder(Node currentNode, int x)
-    {
-        if (currentNode == null) { return -1; } // element not found.
-
-        // perform the traversal in symmetric order recursively.
-
-        int leftResult = findPositionInOrder(currentNode.getLeft(), x);
-
-        if (leftResult != -1) { return leftResult; } // founded! (on the left).
-
-        counter++;
-
-        if (currentNode.getValue() == x) { return counter; } // return position.
-
-        // continue searching in the right subtree.
-
-        return findPositionInOrder(currentNode.getRight(), x);
-    }
-
-    // makes the sum of the elements of the tree.
 
     private int calculateSum(Node currentNode)
     {
@@ -324,8 +299,6 @@ public class BinaryTree
         return leftSum + rightSum + currentNode.getValue();
     }
 
-    // calculate the amount of nodes
-
     private int countNodes(Node currentNode)
     {
         if (currentNode == null) { return 0; }
@@ -333,13 +306,63 @@ public class BinaryTree
         return (1 + countNodes(currentNode.getLeft()) + countNodes(currentNode.getRight()));
     }
 
-    // calculate the height of the tree
-
-    private int treeHeight(Node node)
+    private int treeHeight(Node currentNode)
     {
-        if (node == null) { return 0; }
+        if (currentNode == null) { return 0; }
 
-        return 1 + Math.max(treeHeight(node.getLeft()), treeHeight(node.getRight()));
+        return 1 + Math.max(treeHeight(currentNode.getLeft()), treeHeight(currentNode.getRight()));
+    }
+
+    private void printModelOne(Node currentNode, int nodeLevel)
+    {
+        if (currentNode != null)
+        {
+            int amountOfSpaces = (nodeLevel * 2);
+            int amountOfDashes = 40 - (nodeLevel * 2);
+            int indentSize = countValueDigits(currentNode.getValue());
+
+            for (int i = 0; i <= (amountOfSpaces - indentSize); i++)
+            {
+                System.out.print(" ");
+            }
+
+            System.out.print(currentNode.getValue() + "|");
+
+            for (int i = 0; i <= amountOfDashes; i++)
+            {
+                System.out.print("-");
+            }
+
+            System.out.print(" Level: " + nodeLevel);
+            System.out.println();
+
+            if (currentNode.getLeft() != null)
+            {
+                printModelOne(currentNode.getLeft(), nodeLevel + 1);
+            }
+            if (currentNode.getRight() != null)
+            {
+                printModelOne(currentNode.getRight(), nodeLevel + 1);
+            }
+        }
+    }
+
+    private void printModelTwo(Node currentNode)
+    {
+        System.out.print(currentNode.getValue());
+    }
+
+    private int countValueDigits(int nodeValue)
+    {
+        int digits = 0;
+
+        while (nodeValue > 0)
+        {
+            nodeValue = nodeValue / 10;
+            digits++;
+        }
+
+        return digits;
     }
 
     // -------------------- Getters and Setters --------------------
