@@ -1,23 +1,13 @@
-/*
-
-  ------ Developed by Breno Barbosa & Marcos Vinícius ------
- Basic Data Structure II course project – Binary Search Tree.
-                          - UFRN -
-
-*/
-
 import binarysearchtree.BinaryTree;
 import terminal.CommandPrompt;
 
-import java.nio.file.Path;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.InputStreamReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 public class TreeProgram
 {
@@ -33,11 +23,9 @@ public class TreeProgram
         tree.insertElement(20);
         tree.insertElement(60);
 
-        Path filePath = Path.of("src/testFile.txt");
-
-        if (Files.exists(Paths.get(filePath.toUri())))
+        if (TreeProgram.class.getResource("/testFile.txt") != null)
         {
-            executeCommandsFromFile(String.valueOf(filePath), tree);
+            executeCommandsFromFile(tree);
         }
         else
         {
@@ -51,9 +39,9 @@ public class TreeProgram
 
     // Automatic reading - if a test file exists, it executes commands automatically.
 
-    private static void executeCommandsFromFile(String filePath, BinaryTree tree)
+    private static void executeCommandsFromFile(BinaryTree tree)
     {
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath)))
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(Objects.requireNonNull(TreeProgram.class.getResourceAsStream("/testFile.txt")))))
         {
             String line;
             CommandPrompt commandPrompt = new CommandPrompt(tree);
@@ -88,7 +76,6 @@ public class TreeProgram
                 System.out.println("Program closed.");
                 break;
             }
-
             commandPrompt.processCommand(userInput, scanner);
         }
         scanner.close();
