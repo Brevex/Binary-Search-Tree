@@ -42,20 +42,23 @@ public class BinaryTree
 
     // check if the tree contains a specific value (recursive method).
 
-    private boolean recursiveSearch(Node currentNode, int value)
+    private Node recursiveSearch(Node currentNode, int value)
     {
-        if (currentNode == null) { return false; }
+        if (currentNode == null) { return null; }
 
-        if (value == currentNode.getValue()) { return true; }
+        if (value == currentNode.getValue()) { return currentNode; }
 
         if (value < currentNode.getValue())
         {
             return recursiveSearch(currentNode.getLeft(), value);
         }
-        else { return recursiveSearch(currentNode.getRight(), value); }
+        else
+        {
+            return recursiveSearch(currentNode.getRight(), value);
+        }
     }
 
-    public boolean searchElement(int value) { return recursiveSearch(root, value); }
+    public Node searchElement(int value) { return recursiveSearch(root, value); }
 
     // find the node to delete from the tree (recursive method).
 
@@ -143,12 +146,14 @@ public class BinaryTree
 
     // (4) returns the arithmetic mean of the nodes of the tree that x is the root of.
 
-    public double mean(Node x)
+    public double mean(int x)
     {
         if (root == null) { return 0.0; }
 
-        int sum = calculateSum(x);
-        int totalElements = countNodes(x);
+        Node rootNode = searchElement(x);
+
+        int sum = calculateSum(rootNode);
+        int totalElements = countNodes(rootNode);
 
         if (totalElements > 0)
         {
@@ -211,8 +216,6 @@ public class BinaryTree
     {
         if (root == null) { return; }
 
-        System.out.println(" ");
-
         switch (s)
         {
             case 1:
@@ -221,6 +224,7 @@ public class BinaryTree
 
             case 2:
                 printModelTwo(root);
+                System.out.println(" ");
                 break;
 
             default:
@@ -317,11 +321,10 @@ public class BinaryTree
     {
         if (currentNode != null)
         {
-            int amountOfSpaces = (nodeLevel * 2);
-            int amountOfDashes = 40 - (nodeLevel * 2);
-            int indentSize = countValueDigits(currentNode.getValue());
+            int amountOfSpaces = (nodeLevel * 2) - countValueDigits(currentNode.getValue());
+            int amountOfDashes = (treeHeight(root) * 3) - (nodeLevel * 2);
 
-            for (int i = 0; i <= (amountOfSpaces - indentSize); i++)
+            for (int i = 0; i <= amountOfSpaces; i++)
             {
                 System.out.print(" ");
             }
@@ -340,6 +343,7 @@ public class BinaryTree
             {
                 printModelOne(currentNode.getLeft(), nodeLevel + 1);
             }
+
             if (currentNode.getRight() != null)
             {
                 printModelOne(currentNode.getRight(), nodeLevel + 1);
@@ -349,7 +353,27 @@ public class BinaryTree
 
     private void printModelTwo(Node currentNode)
     {
-        System.out.print(currentNode.getValue());
+        if (currentNode != null)
+        {
+            System.out.print(currentNode.getValue());
+
+            if (currentNode.getLeft() != null || currentNode.getRight() != null)
+            {
+                System.out.print(" (");
+
+                if (currentNode.getLeft() != null)
+                {
+                    printModelTwo(currentNode.getLeft());
+                    System.out.print(") (");
+                }
+
+                if (currentNode.getRight() != null)
+                {
+                    printModelTwo(currentNode.getRight());
+                    System.out.print(")");
+                }
+            }
+        }
     }
 
     private int countValueDigits(int nodeValue)
