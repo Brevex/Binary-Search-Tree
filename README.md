@@ -1,6 +1,6 @@
 <h1 align = "center"> Java Binary Search Tree </h1><br>
 
-<h2> &#128269; About the project </h2><br>
+<h2> &#128269; About the project </h2>
 
 <p>A binary search tree made in Java that stores integer values. In addition to 
 conventional insertion, removal and search operations, the tree also has additional 
