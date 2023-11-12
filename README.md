@@ -2,16 +2,17 @@
 
 <h2> &#128269; About the project </h2><br>
 
-<p>A binary search tree made in Java. </p>
+<p>A binary search tree made in Java that stores integer values. In addition to 
+conventional insertion, removal and search operations, the tree also has additional 
+methods for better analysis of the structure.</p>
 
 <h2> &#128296; Dependencies and Execution </h2><br>
 
-<p>To compile and run this program on your machine, you will need CMake and
-the code compiler for C/C++, which can be gcc or g++. To create the executable
-go to the "build" folder, right click and open the terminal
-inside that folder. With the terminal open, type "cmake.." and press enter, then
-type "make" and hit enter again. Finally, type "./manager" to run
-the program.</p><br>
+<p>To compile and run this program, you will need to have the java development kit (JDK) installed and configured on your machine.
+Download JDK by <a href="https://www.oracle.com/br/java/technologies/downloads/" target="_blank">clicking here.</a></p><br>
+
+<p>After configuring the JDK, download this project and open the terminal inside the "src" folder. With the terminal open, type in
+sequence the following commands:</p><br>
 
 <h2> &#128302; Technologies Used </h2><br>
 
