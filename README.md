@@ -8,13 +8,14 @@ methods for better analysis of the structure.</p>
 
 <h2> &#128296; Dependencies and Execution </h2><br>
 
-<p>To compile and run this program, you will need to have the java development kit (JDK) installed and configured on your machine.
+<p>To compile and run this program, you will need to have the Java Development Kit (JDK) installed and configured on your machine.
 Download JDK by <a href="https://www.oracle.com/br/java/technologies/downloads/" target="_blank">clicking here.</a></p><br>
 
 <p>After configuring the JDK, download this project and open the terminal inside the "src" folder. With the terminal open, type in
-sequence the following commands:</p><br>
+sequence the following commands:</p>
 
-javac TreeProgram.java
+<code>javac TreeProgram.java</code><br>
+<code>java TreeProgram</code>
 
 <h2> &#128302; Technologies Used </h2><br>
 
