@@ -72,7 +72,7 @@ public class TreeProgram
 
             String userInput = scanner.nextLine();
 
-            if (userInput.equalsIgnoreCase("EXIT"))
+            if (userInput.equalsIgnoreCase("exit"))
             {
                 System.out.println(" ");
                 System.out.println("Program closed.");
