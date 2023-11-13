@@ -68,37 +68,37 @@ automatically without the need to enter the commands manually.</p><br>
 <details>
 	<summary>insert</summary
 	<br><br><p>Adds a new element to the tree</p>
-	<img align = "center" src="https://github.com/Brevex/Playlist-Management-Simulator/blob/main/readme%20images/program/add-song.png" alt="print from program">
+	<img align = "center" src="https://github.com/Brevex/Binary-Search-Tree/blob/main/readme%20images/insert.png">
 </details>
 
 <details>
-	<summary>Delete Song from System</summary
-	<br><br><p>Removes a song from the system if it was found.</p>
-	<img align = "center" src="https://github.com/Brevex/Playlist-Management-Simulator/blob/main/readme%20images/program/delete-song.png" alt="print from program">
+	<summary>remove</summary
+	<br><br><p>Removes a element from the tree</p>
+	<img align = "center" src="https://github.com/Brevex/Binary-Search-Tree/blob/main/readme%20images/remove.png">
 </details>
 
 <details>
-	<summary>Add Playlist to System</summary
-	<br><br><p>Add a new playlist to the system. Repeated playlists are not allowed.</p>
-	<img align = "center" src="https://github.com/Brevex/Playlist-Management-Simulator/blob/main/readme%20images/program/add-playlist.png" alt="print from program">
+	<summary>print</summary
+	<br><br><p>Allows the user to print the tree in 2 different styles</p>
+	<img align = "center" src="https://github.com/Brevex/Binary-Search-Tree/blob/main/readme%20images/print.png">
 </details>
 
 <details>
-	<summary>Delete Playlist from System</summary
-	<br><br><p>Removes a playlist from the system if it was found.</p>
-	<img align = "center" src="https://github.com/Brevex/Playlist-Management-Simulator/blob/main/readme%20images/program/delete-playlist.png" alt="print from program">
+	<summary>nth</summary
+	<br><br><p>Search for the element corresponding to the position passed in the command parameter</p>
+	<img align = "center" src="https://github.com/Brevex/Binary-Search-Tree/blob/main/readme%20images/nth.png">
 </details>
 
 <details>
-	<summary>Add Song to Playlist</summary
-	<br><br><p>Adds a song that has already been registered in the system to an existing playlist. If the song or playlist does not exist, the program will return an error.</p>
-	<img align = "center" src="https://github.com/Brevex/Playlist-Management-Simulator/blob/main/readme%20images/program/add-song-playlist.png" alt="print from program">
+	<summary>position</summary
+	<br><br><p>Returns the position of the element inserted in the command parameter</p>
+	<img align = "center" src="https://github.com/Brevex/Binary-Search-Tree/blob/main/readme%20images/position.png">
 </details>
 
 <details>
-	<summary>Delete Song from Playlist</summary
-	<br><br><p>Remove a song registered in a playlist. If the song or playlist does not exist, the program will return an error.</p>
-	<img align = "center" src="https://github.com/Brevex/Playlist-Management-Simulator/blob/main/readme%20images/program/delete-song-playlist.png" alt="print from program">
+	<summary>mean</summary
+	<br><br><p>Returns the element that occupies the median of the tree</p>
+	<img align = "center" src="https://github.com/Brevex/Binary-Search-Tree/blob/main/readme%20images/median.png">
 </details>
 
 <details>
