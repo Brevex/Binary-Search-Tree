@@ -21,50 +21,43 @@ public class BinaryTree
         }
         else if (value < currentNode.getValue())
         {
-            if (currentNode.getLeft() == null || value != currentNode.getLeft().getValue())
-            {
-                currentNode.setLeft(recursiveInsert(currentNode.getLeft(), value, nodeLevel + 1));
-            }
+            currentNode.setLeft(recursiveInsert(currentNode.getLeft(), value, nodeLevel + 1));
         }
         else if (value > currentNode.getValue())
         {
-            if (currentNode.getRight() == null || value != currentNode.getRight().getValue())
-            {
-                currentNode.setRight(recursiveInsert(currentNode.getRight(), value, nodeLevel + 1));
-            }
+            currentNode.setRight(recursiveInsert(currentNode.getRight(), value, nodeLevel + 1));
+        }
+        else if (currentNode.getValue() == value)
+        {
+            throw new IllegalArgumentException("Value already exists");
         }
 
         updateSubtreeNodeAmount(currentNode);
         return currentNode;
     }
 
-    public void insertElement(int value) { root = recursiveInsert(root, value, 1); }
-
-    // check if the tree contains a specific value (recursive method).
-
-    private Node recursiveSearch(Node currentNode, int value)
+    public boolean insertElement(int value)
     {
-        if (currentNode == null) { return null; }
+       try
+       {
+           root = recursiveInsert(root, value, 1);
+       }
+       catch (IllegalArgumentException e)
+       {
+           return  false;
+       }
 
-        if (value == currentNode.getValue()) { return currentNode; }
-
-        if (value < currentNode.getValue())
-        {
-            return recursiveSearch(currentNode.getLeft(), value);
-        }
-        else
-        {
-            return recursiveSearch(currentNode.getRight(), value);
-        }
+        return true;
     }
-
-    public Node searchElement(int value) { return recursiveSearch(root, value); }
 
     // find the node to delete from the tree (recursive method).
 
     private Node recursiveDelete(Node currentNode, int value)
     {
-        if (currentNode == null) { return null; }
+        if (currentNode == null)
+        {
+            throw new IllegalArgumentException("Value does not exist");
+        }
 
         if (value == currentNode.getValue())
         {
@@ -97,7 +90,39 @@ public class BinaryTree
         return currentNode;
     }
 
-    public void deleteElement(int value) { root = recursiveDelete(root, value); }
+    public boolean deleteElement(int value)
+    {
+        try
+        {
+            root = recursiveDelete(root, value);
+        }
+        catch (IllegalArgumentException e)
+        {
+            return  false;
+        }
+
+        return true;
+    }
+
+    // check if the tree contains a specific value (recursive method).
+
+    private Node recursiveSearch(Node currentNode, int value)
+    {
+        if (currentNode == null) { return null; }
+
+        if (value == currentNode.getValue()) { return currentNode; }
+
+        if (value < currentNode.getValue())
+        {
+            return recursiveSearch(currentNode.getLeft(), value);
+        }
+        else
+        {
+            return recursiveSearch(currentNode.getRight(), value);
+        }
+    }
+
+    public Node searchElement(int value) { return recursiveSearch(root, value); }
 
     // --------------------- Specific Methods ----------------------
 
@@ -138,10 +163,7 @@ public class BinaryTree
 
             return Math.min(median1, median2);
         }
-        else
-        {
-            return nthElement(totalElements / 2);
-        }
+        else { return nthElement(totalElements / 2); }
     }
 
     // (4) returns the arithmetic mean of the nodes of the tree that x is the root of.
@@ -376,18 +398,7 @@ public class BinaryTree
         }
     }
 
-    private int countValueDigits(int nodeValue)
-    {
-        int digits = 0;
-
-        while (nodeValue > 0)
-        {
-            nodeValue = nodeValue / 10;
-            digits++;
-        }
-
-        return digits;
-    }
+    private int countValueDigits(int nodeValue) { return (nodeValue + "").length(); }
 
     // -------------------- Getters and Setters --------------------
 
