@@ -63,11 +63,11 @@ automatically without the need to enter the commands manually.</p><br>
 
 <br><h2> &#128161; Program Functions </h2>
 
-<img align = "center" src="https://github.com/Brevex/Playlist-Management-Simulator/blob/main/readme%20images/program/program-layout.png" alt="program menu">
-<br>
+<p>As mentioned, the program has several other functions in addition to the basic insertion, removal and search. Below are the available functions:</p><br>
+
 <details>
-	<summary>Add Song to System</summary
-	<br><br><p>Add a new song to the system. Repeated songs are not allowed.</p>
+	<summary>insert</summary
+	<br><br><p>Adds a new element to the tree</p>
 	<img align = "center" src="https://github.com/Brevex/Playlist-Management-Simulator/blob/main/readme%20images/program/add-song.png" alt="print from program">
 </details>
 
