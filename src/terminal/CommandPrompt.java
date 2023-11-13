@@ -165,7 +165,7 @@ public class CommandPrompt
 
         int value = Integer.parseInt(parts[1]);
 
-        System.out.println("\nArithmetic mean of the nodes of the tree: " + tree.mean(value));
+        System.out.println("\nArithmetic mean of tree values: " + tree.mean(value));
         System.out.println(" ");
     }
 
