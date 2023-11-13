@@ -96,27 +96,39 @@ automatically without the need to enter the commands manually.</p><br>
 </details>
 
 <details>
-	<summary>mean</summary
+	<summary>median</summary
 	<br><br><p>Returns the element that occupies the median of the tree</p>
 	<img align = "center" src="https://github.com/Brevex/Binary-Search-Tree/blob/main/readme%20images/median.png">
 </details>
 
 <details>
-	<summary>Print Songs and Playlists</summary
-	<br><br><p>Prints all songs and playlists that are registered in the system.</p>
-	<img align = "center" src="https://github.com/Brevex/Playlist-Management-Simulator/blob/main/readme%20images/program/system-songs-playlists.png" alt="print from program">
+	<summary>mean</summary
+	<br><br><p>Returns the arithmetic mean value of the tree values</p>
+	<img align = "center" src="https://github.com/Brevex/Binary-Search-Tree/blob/main/readme%20images/mean.png">
 </details>
 
 <details>
-	<summary>Print Playlist Songs</summary
-	<br><br><p>Prints the songs that are registered in a playlist.</p>
-	<img align = "center" src="https://github.com/Brevex/Playlist-Management-Simulator/blob/main/readme%20images/program/playlist-songs.png" alt="print from program">
+	<summary>full</summary
+	<br><br><p>Analyzes whether the tree is full or not</p>
+	<img align = "center" src="https://github.com/Brevex/Binary-Search-Tree/blob/main/readme%20images/full.png">
 </details>
 
 <details>
-	<summary>Run Playlist</summary
-	<br><br><p>Plays a system playlist chosen by the user.</p>
-	<img align = "center" src="https://github.com/Brevex/Playlist-Management-Simulator/blob/main/readme%20images/program/run-playlist.png" alt="print from program">
+	<summary>complete</summary
+	<br><br><p>Analyzes whether the tree is complete or not</p>
+	<img align = "center" src="https://github.com/Brevex/Binary-Search-Tree/blob/main/readme%20images/complete.png">
+</details>
+
+<details>
+	<summary>preorder</summary
+	<br><br><p>Print the tree in preorder</p>
+	<img align = "center" src="https://github.com/Brevex/Binary-Search-Tree/blob/main/readme%20images/preorder.png">
+</details>
+
+<details>
+	<summary>complete</summary
+	<br><br><p>Searches for an element in the tree and returns whether it exists or not</p>
+	<img align = "center" src="https://github.com/Brevex/Binary-Search-Tree/blob/main/readme%20images/search.png">
 </details>
 
 <br><h3 align = "center"> - By <a href = "https://www.linkedin.com/in/breno-barbosa-de-oliveira-810866275/" target = "_blank">Breno</a> - </h3>
