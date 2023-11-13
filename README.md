@@ -63,7 +63,8 @@ automatically without the need to enter the commands manually.</p><br>
 
 <br><h2> &#128161; Program Functions </h2>
 
-<p>As mentioned, the program has several other functions in addition to the basic insertion, removal and search. Below are the available functions:</p><br>
+<p>As mentioned, the program has several other functions in addition to the basic insertion, removal and 
+search. the program works either by manually receiving the functions or with a test file, below are the available functions:</p><br>
 
 <details>
 	<summary>insert</summary
