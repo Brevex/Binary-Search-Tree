@@ -121,7 +121,15 @@ public class CommandPrompt
 
         int value = Integer.parseInt(parts[1]);
 
-        System.out.println("\nNth element: " + tree.nthElement(value));
+        String positionOrder = switch (value)
+        {
+            case 1 -> "st";
+            case 2 -> "nd";
+            case 3 -> "rd";
+            default -> "th";
+        };
+
+        System.out.println("\n" + value + positionOrder + " element: " + tree.nthElement(value));
         System.out.println(" ");
     }
 
