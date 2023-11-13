@@ -27,8 +27,7 @@ it you can write one command per line so that the program starts and executes ea
 automatically without the need to enter the commands manually.</p>
 
 <details>
-   	<summary>Test File Exemple</summary
-	insert 12
+   	<summary>Test File Exemple</summary>
 </details>
 
 <h2> &#128302; Technologies Used </h2><br>
