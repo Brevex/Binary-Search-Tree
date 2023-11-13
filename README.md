@@ -87,7 +87,7 @@ search. the program works either by manually receiving the functions or with a t
 <details>
 	<summary>nth</summary
 	<br><br><p>Search for the element corresponding to the position passed in the command parameter</p>
-	<img align = "center" src="https://github.com/Brevex/Binary-Search-Tree/blob/main/readme%20images/nth.png">
+	<img align = "center" src="https://github.com/Brevex/Binary-Search-Tree/blob/main/readme%20images/nthElement.png">
 </details>
 
 <details>
