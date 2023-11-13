@@ -14,9 +14,11 @@ methods for better analysis of the structure.</p><br>
    <li>Download this project and open the terminal inside the "src" folder.</li>
    <li>With the terminal open, run in sequence the following commands:</li>
 </ol>
-
-<code>javac TreeProgram.java</code><br>
-<code>java TreeProgram</code><br><br>
+	   
+<ul>
+   <li><code>javac TreeProgram.java</code></li>
+   <li><code>java TreeProgram</code></li>
+</ul>
 
 <h2> &#128302; Technologies Used </h2><br>
 
