@@ -26,8 +26,9 @@ methods for better analysis of the structure.</p><br>
 it you can write one command per line so that the program starts and executes each command 
 automatically without the need to enter the commands manually.</p><br>
 
-> :warning: **The program will only recognize the test file if it is named "testFile.txt"**
-The file must be in the src folder
+> :warning: **The program will only recognize the test file if it is named "testFile.txt"** <br><br>
+> :warning: **The file must be in the <code>src</code> folder**
+
 <br><details>
    	<summary>Test File Exemple</summary>
 
