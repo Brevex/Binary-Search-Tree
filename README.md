@@ -104,7 +104,7 @@ search. the program works either by manually receiving the functions or with a t
 
 <details>
 	<summary>mean</summary
-	<br><br><p>Returns the arithmetic mean value of the tree values</p>
+	<br><br><p>Returns the arithmetic mean of tree values</p>
 	<img align = "center" src="https://github.com/Brevex/Binary-Search-Tree/blob/main/readme%20images/arithmeticMean.png">
 </details>
 
