@@ -14,6 +14,8 @@ Download JDK by <a href="https://www.oracle.com/br/java/technologies/downloads/"
 <p>After configuring the JDK, download this project and open the terminal inside the "src" folder. With the terminal open, type in
 sequence the following commands:</p><br>
 
+javac TreeProgram.java
+
 <h2> &#128302; Technologies Used </h2><br>
 
 <p align="center">
