@@ -4,7 +4,7 @@
 
 <p>A binary search tree made in Java that stores integer values. In addition to 
 conventional insertion, removal and search operations, the tree also has additional 
-methods for better analysis of the structure.</p><br>
+methods for better analysis of the structure.</p>
 
 <h2> &#128296; Dependencies and Execution </h2>
 
@@ -16,7 +16,7 @@ methods for better analysis of the structure.</p><br>
 </ol>
 
 <code>javac TreeProgram.java</code><br>
-<code>java TreeProgram</code><br><br>
+<code>java TreeProgram</code><br>
 
 <h2> &#128302; Technologies Used </h2><br>
 
