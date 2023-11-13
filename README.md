@@ -14,11 +14,11 @@ methods for better analysis of the structure.</p><br>
    <li>Download this project and open the terminal inside the <code>src</code> folder.</li>
    <li>With the terminal open, run in sequence the following commands:</li>
 </ol>
-	   
-<ul>
-   <li><code>javac TreeProgram.java</code></li>
-   <li><code>java TreeProgram</code></li>
-</ul><br>
+
+ 	javac TreeProgram.java  
+<br>
+
+	java TreeProgram
 
 <h2> &#128196; Test File </h2>
 
@@ -30,6 +30,27 @@ automatically without the need to enter the commands manually.</p><br>
 
 <br><details>
    	<summary>Test File Exemple</summary>
+
+	complete
+ 	full
+	nth 3
+	insert 36
+	full
+	preorder
+	print 1
+	print 2
+	remove 50
+	insert 15
+	insert 39
+	remove 32
+	position 15
+	insert 39
+	nth 5
+	median
+	mean 20
+	search 36
+	insert 25
+	median
 </details><br>
 
 <h2> &#128302; Technologies Used </h2><br>
