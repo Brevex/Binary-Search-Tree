@@ -25,10 +25,12 @@ public class TreeProgram
 
         if (TreeProgram.class.getResource("/testFile.txt") != null)
         {
+            System.out.println(" ");
             executeCommandsFromFile(tree);
         }
         else
         {
+            System.out.println(" ");
             System.out.println("\n Input file not found. Entering manual mode.");
             System.out.println("\n If the test file exists, check if its name is 'testFile'.");
             System.out.println(" ");
