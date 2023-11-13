@@ -23,17 +23,17 @@ public class CommandPrompt
 
         Map <String, CommandHandler> commandHandlers = new HashMap<>();
 
-        commandHandlers.put("INSIRA", this::executeInsertCommand);
-        commandHandlers.put("REMOVA", this::executeRemoveCommand);
-        commandHandlers.put("IMPRIMA", this::executePrintCommand);
-        commandHandlers.put("ENESIMO", this::executeNthElementCommand);
-        commandHandlers.put("POSICAO", this::executePositionCommand);
-        commandHandlers.put("MEDIANA", this::executeMedianCommand);
-        commandHandlers.put("MEDIA", this::executeMeanCommand);
-        commandHandlers.put("CHEIA", this::executeIsFullCommand);
-        commandHandlers.put("COMPLETA", this::executeIsCompleteCommand);
-        commandHandlers.put("PREORDEM", this::executePreOrderCommand);
-        commandHandlers.put("BUSCAR", this::executeSearchCommand);
+        commandHandlers.put("insert", this::executeInsertCommand);
+        commandHandlers.put("remove", this::executeRemoveCommand);
+        commandHandlers.put("print", this::executePrintCommand);
+        commandHandlers.put("nth", this::executeNthElementCommand);
+        commandHandlers.put("position", this::executePositionCommand);
+        commandHandlers.put("median", this::executeMedianCommand);
+        commandHandlers.put("mean", this::executeMeanCommand);
+        commandHandlers.put("full", this::executeIsFullCommand);
+        commandHandlers.put("complete", this::executeIsCompleteCommand);
+        commandHandlers.put("preorder", this::executePreOrderCommand);
+        commandHandlers.put("search", this::executeSearchCommand);
 
         CommandHandler handler = commandHandlers.get(command);
 
