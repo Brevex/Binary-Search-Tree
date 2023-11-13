@@ -11,14 +11,20 @@ methods for better analysis of the structure.</p><br>
 <ol>
    <li>Download JDK by <a href="https://www.oracle.com/br/java/technologies/downloads/" target="_blank">clicking here.</li>
    <li>Configure JDK on your machine.</li>
-   <li>Download this project and open the terminal inside the "src" folder.</li>
+   <li>Download this project and open the terminal inside the <code>src</code> folder.</li>
    <li>With the terminal open, run in sequence the following commands:</li>
 </ol>
 	   
 <ul>
    <li><code>javac TreeProgram.java</code></li>
    <li><code>java TreeProgram</code></li>
-</ul>
+</ul><br>
+
+<h2> &#128196; Test File </h2>
+
+<p>The program has a test file. Inside the <code>src</code> folder you will find a file called <code>testFile.txt</code>, in 
+it you can write one command per line so that the program starts and executes each command 
+automatically without the need to enter the commands manually.</p><br>
 
 <h2> &#128302; Technologies Used </h2><br>
 
