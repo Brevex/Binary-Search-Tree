@@ -9,7 +9,7 @@ methods for better analysis of the structure.</p><br>
 <h2> &#128296; Dependencies and Execution </h2>
 
 <ol>
-   <li>Download JDK by <a target="_blank" href="https://www.oracle.com/br/java/technologies/downloads/">clicking here</a>.</li>
+   <li>Download JDK by <a href="https://www.oracle.com/br/java/technologies/downloads/" target="_blank">clicking here</a>.</li>
    <li>Configure JDK on your machine.</li>
    <li>Download this project and open the terminal inside the <code>src</code> folder.</li>
    <li>With the terminal open, run in sequence the following commands:</li>
