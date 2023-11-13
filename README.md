@@ -24,11 +24,13 @@ methods for better analysis of the structure.</p><br>
 
 <p>The program has a test file. Inside the <code>src</code> folder you will find a file called <code>testFile.txt</code>, in 
 it you can write one command per line so that the program starts and executes each command 
-automatically without the need to enter the commands manually.</p>
+automatically without the need to enter the commands manually.</p><br>
 
-<details>
+> :warning: **The program will only recognize the test file if it is named "testFile.txt"**
+
+<br><details>
    	<summary>Test File Exemple</summary>
-</details>
+</details><br>
 
 <h2> &#128302; Technologies Used </h2><br>
 
