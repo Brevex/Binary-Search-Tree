@@ -1,11 +1,13 @@
+insert 22
+insert 16
+insert 24
+insert 33
 complete
 full
 nth 3
 insert 36
 full
 preorder
-print 1
-print 2
 remove 50
 insert 15
 insert 39
@@ -18,3 +20,5 @@ mean 20
 search 36
 insert 25
 median
+print 1
+print 2
