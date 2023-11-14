@@ -16,13 +16,6 @@ public class TreeProgram
         BinaryTree tree = new BinaryTree();
         Scanner scanner = new Scanner(System.in);
 
-        tree.insertElement(32);
-        tree.insertElement(13);
-        tree.insertElement(5);
-        tree.insertElement(41);
-        tree.insertElement(20);
-        tree.insertElement(60);
-
         if (TreeProgram.class.getResource("/testFile.txt") != null)
         {
             System.out.println(" ");
