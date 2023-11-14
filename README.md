@@ -32,14 +32,16 @@ automatically without the need to enter the commands manually.</p><br>
 <br><details>
    	<summary>Test File Exemple</summary>
 
+	insert 22
+	insert 16
+	insert 24
+	insert 33
 	complete
- 	full
+	full
 	nth 3
 	insert 36
 	full
 	preorder
-	print 1
-	print 2
 	remove 50
 	insert 15
 	insert 39
@@ -52,6 +54,9 @@ automatically without the need to enter the commands manually.</p><br>
 	search 36
 	insert 25
 	median
+	print 1
+	print 2
+ 
 </details><br>
 
 <h2> &#128302; Technologies Used </h2><br>
