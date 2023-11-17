@@ -31,7 +31,7 @@ automatically without the need to enter the commands manually.</p><br>
 
 <br><details>
    	<summary>Test File Exemple</summary>
-	<br><br><p>Create a <code>.txt</code> file with the lines below</p>
+	<br><br><p>Create a <code>testFile.txt</code> file with the lines below</p>
  
 	insert 22
 	insert 16
