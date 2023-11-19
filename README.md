@@ -2,7 +2,7 @@
 
 <h2> &#128269; About the project </h2>
 
-<p>A binary search tree made in Java that stores integer values. In addition to 
+<p>A binary search tree made in Java that manipulates integer values. In addition to 
 conventional insertion, removal and search operations, the tree also has additional 
 methods for better analysis of the structure.</p><br>
 
