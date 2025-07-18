@@ -63,8 +63,8 @@ automatically without the need to enter the commands manually.</p><br>
 <h2> &#128302; Technologies Used </h2><br>
 
 <p align="center">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=java" />
+  <a href="https://github.com/syvixor/skills-icons">
+	  <img src="https://skills.syvixor.com/api/icons?i=java" alt="Skills">
   </a>
 </p>
 
